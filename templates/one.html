@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		searchBar
+	</title>
+
+	<style>
+		/*
+Basic input element using psuedo classes
+*/
+
+		html {
+			font-family: 'Lora', sans-serif;
+			width: 100%;
+		}
+
+		body {
+			margin: 5% auto 0 auto;
+			width: 90%;
+			max-width: 1125px;
+		}
+
+
+		input,
+		span,
+		label {
+			font-family: 'Ubuntu', sans-serif;
+			display: block;
+			margin: 10px;
+			padding: 5px;
+			border: none;
+			font-size: 22px;
+		}
+
+		textarea:focus,
+		input:focus {
+			outline: 0;
+		}
+
+		/* Question */
+
+		input.question,
+		textarea.question {
+			font-size: 32px;
+			font-weight: 300;
+			border-radius: 2px;
+			margin: 0;
+			border: none;
+			width: 80%;
+			background: rgba(255, 0, 0, 0);
+			transition: padding-top 0.2s ease, margin-top 0.2s ease;
+			overflow-x: hidden;
+			color: aliceblue;
+			/* Hack to make "rows" attribute apply in Firefox. */
+		}
+
+		/* Underline and Placeholder */
+
+		input.question+label,
+		textarea.question+label {
+			display: block;
+			position: relative;
+			white-space: nowrap;
+			padding: 0;
+			margin: 0;
+			width: 10%;
+			border-top: 1px solid red;
+			-webkit-transition: width 0.4s ease;
+			transition: width 0.4s ease;
+			height: 0px;
+			/**/
+		}
+
+		input.question:focus+label,
+		textarea.question:focus+label {
+			width: 80%;
+		}
+
+		input.question:focus,
+		input.question:valid {
+			padding-top: 35px;
+		}
+
+		textarea.question:valid,
+		textarea.question:focus {
+			margin-top: 35px;
+		}
+
+		input.question:focus+label>span,
+		input.question:valid+label>span {
+			top: -100px;
+			font-size: 22px;
+			color: #cfcfcf;
+		}
+
+		textarea.question:focus+label>span,
+		textarea.question:valid+label>span {
+			top: -150px;
+			font-size: 22px;
+			color: rgb(255, 0, 0);
+			/**/
+		}
+
+		input.question:valid+label,
+		textarea.question:valid+label {
+			border-color: green;
+		}
+
+		input.question:invalid,
+		textarea.question:invalid {
+			box-shadow: none;
+		}
+
+		input.question+label>span,
+		textarea.question+label>span {
+			font-weight: 300;
+			margin: 0;
+			position: absolute;
+			color: #f7f7f7;
+			font-size: 48px;
+			top: -66px;
+			left: 0px;
+			z-index: -1;
+			-webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+			transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+		}
+
+
+
+		input[type="submit"] {
+			display: block;
+			margin: 10px 0 0 0;
+			padding: 10px;
+			cursor: pointer;
+		}
+
+		input[type="submit"]:hover {
+			background: #eee;
+		}
+
+		input[type="submit"]:active {
+			background: #000;
+		}
+
+
+
+		@-webkit-keyframes appear {
+			100% {
+				opacity: 1;
+			}
+		}
+
+		@keyframes appear {
+			100% {
+				opacity: 1;
+			}
+		}
+
+
+
+
+
+		.wrapper {
+			display: grid;
+			grid-template-columns: 100%;
+		}
+
+		.wrapper>div {
+			padding: 1rem;
+		}
+
+
+
+		.buttons {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			justify-items: center;
+
+
+		}
+
+		.buttons>div {
+			padding: 1rem;
+		}
+
+
+		.sbar {
+			padding-top: 15rem;
+			padding-left: 4rem;
+			align-self: center;
+		}
+
+		body {
+			background-image: url("https://i.pinimg.com/originals/f2/48/63/f24863b5225434c5f3c77627005809cf.jpg");
+			height: 400px;
+			width: 100%;
+		}
+
+		button {
+
+			background: transparent;
+			border: none !important;
+			border-radius: 25px;
+		}
+
+		img {
+			border-radius: 15%;
+			cursor: pointer;
+
+		}
+
+		​ #buttons>div {
+			border-radius: 25px;
+		}
+	</style>
+
+</head>
+
+<body>
+
+
+
+	<form action="#" method="post" onsubmit="redirect();return false;">
+		<div class='sbar'>
+
+			<input type="text" name="query" class="question" id="nme" required autocomplete="off" />
+			<label for="nme"><span>Search anything</span></label>
+		</div>
+
+		<div class="wrapper">
+			<div class="buttons">
+
+				<div>
+					<button type="submit" name="submit_button" value="google">
+						<img src="https://cdn.vox-cdn.com/thumbor/Ous3VQj1sn4tvb3H13rIu8eGoZs=/0x0:2012x1341/1400x788/filters:focal(0x0:2012x1341):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"
+							alt="Save icon" width="110" height="60" />
+					</button>
+				</div>
+
+				<div>
+					<button type="submit" name="submit_button" value="amazon">
+						<img src="https://variety.com/wp-content/uploads/2020/06/youtube-logo.png?w=681&h=383&crop=1"
+							alt="Save icon" width="110" height="60" />
+					</button>
+				</div>
+
+				<div>
+					<button type="submit" name="submit_button" value="amazon">
+						<img src="https://www.bizmonthly.com/wp-content/uploads/2020/04/Amazon-logo-black-template.png"
+							alt="Save icon" width="110" height="60" />
+					</button>
+				</div>
+			</div>
+
+		</div>
+
+
+	</form>
+
+
+
+
+</body>
+
+</html>
